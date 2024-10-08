@@ -1,3 +1,4 @@
+//Multicast delegate
 using System;
 
 public delegate void GreetDelegate(string message);
