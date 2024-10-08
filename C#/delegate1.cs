@@ -1,30 +1,32 @@
-using System;
-
-// Declare a delegate
-public delegate void GreetDelegate(string message);
-
-class Program
-{
-    // Method that matches the delegate signature
-    public static void GreetMorning(string message)
-    {
-        Console.WriteLine("Good Morning, " + message);
+namespace MyFirstDelegate {
+    //This delegate can point to any method,
+    //taking two integers and returning an
+    //integer.
+    public delegate int MyDelegate(int x, int y);
+    //This class contains methods that MyDelegate will point to.
+    public class MyClass {
+        public static int Add(int x, int y) {
+            return x + y;
+        }
+        public static int Multiply(int x, int y) {
+            return x * y;
+        }
     }
-
-    // Another method that matches the delegate signature
-    public static void GreetEvening(string message)
-    {
-        Console.WriteLine("Good Evening, " + message);
-    }
-
-    static void Main(string[] args)
-    {
-        // Create delegate instances and assign methods
-        GreetDelegate greet1 = new GreetDelegate(GreetMorning);
-        GreetDelegate greet2 = new GreetDelegate(GreetEvening);
-
-        // Call the methods using delegates
-        greet1("Alice");  // Calls GreetMorning
-        greet2("Bob");    // Calls GreetEvening
+    class Program {
+        static void Main(string[] args) {
+            //Create an Instance of MyDelegate
+            //that points to MyClass.Add().
+            MyDelegate del1 = new MyDelegate(MyClass.Add);
+            //Invoke Add() method using the delegate.
+            int addResult = del1(5, 5);
+            Console.WriteLine("5 + 5 = {0}\n", addResult);
+            //Create an Instance of MyDelegate
+            //that points to MyClass.Multiply().
+            MyDelegate del2 = new MyDelegate(MyClass.Multiply);
+            //Invoke Multiply() method using the delegate.
+            int multiplyResult = del2(5, 5);
+            Console.WriteLine("5 X 5 = {0}", multiplyResult);
+            Console.ReadLine();
+        }
     }
 }
