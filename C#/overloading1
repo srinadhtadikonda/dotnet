@@ -1,0 +1,38 @@
+using System;
+class MyCalci
+{
+    public int a;
+    public int b;
+    public int c;
+    public int mysum()
+    {
+        return a+b;
+    }
+    public int mysum(int x,int y)
+    {
+        a=x;
+        b=y;
+        return a+b;
+    }
+       public int mysum(int x,int y,int z)
+    {
+        a=x;
+        b=y;
+        c=z;
+        return a+b+c;
+    }
+    
+}
+class Test 
+{
+    static void Main()
+    {
+        MyCalci MC=new MyCalci();
+        MC.a=1;
+        MC.b=2;
+        MC.c=3;
+        System.Console.WriteLine("Sum="+MC.mysum());
+        System.Console.WriteLine("Sum="+MC.mysum(11,22));
+        System.Console.WriteLine("Sum="+MC.mysum(5,7,9));
+    }
+}
