@@ -1,0 +1,41 @@
+using System;
+class MyBooks
+{
+    public int bno;
+    public string bname;
+    public double bprice;
+    
+    public void sbdet()
+    {
+    System.Console.WriteLine("bno="+bno+"\t"+"bname="+bname+"\t"+"bprice="+bprice);
+    }
+   
+    public void  sbdet(int bn,string bna)
+    {
+        bno=bn;
+        bname=bna;
+    System.Console.WriteLine("bno="+bno+"\t"+"bname="+bname);
+    }
+    
+    public void  sbdet(int bn,string bna,double bp)
+    {
+        bno=bn;
+        bname=bna;
+        bprice=bp;
+    System.Console.WriteLine("bno="+bno+"\t"+"bname="+bname+"\t"+"bprice="+bprice);
+    }
+}
+class Test 
+{
+    static void Main()
+    {
+        MyBooks MB=new MyBooks();
+        MB.bno=101;
+        MB.bname="unix";
+        MB.bprice=456.75;
+        MB.sbdet();
+        MB.sbdet(102,"Python");
+         MB.sbdet(103,"JAVA",897.45); 
+      
+    }
+}
