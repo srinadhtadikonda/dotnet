@@ -1,0 +1,36 @@
+<%@ Page Language="C#" %>
+<!doctype html>
+<html lang="en">
+<body>
+<form id="Form1" runat="server">
+<asp:Label ID="Label1" runat="server" Text="Enter a username: " />
+<asp:TextBox id="txt1" runat="server" />
+<asp:Button ID="Button1" Text="Submit" runat="server" />
+<br />
+<asp:Label id="mess" runat="server"/>
+<br />
+<asp:CustomValidator ID="CustomValidator1" ControlToValidate="txt1" OnServerValidate="user"
+Text="A username must be between 8 and 16 characters!" runat="server"/>
+</form>
+</body>
+</html>
+
+click design,double click on white screen write the below function
+
+<script runat="server">
+
+    void user(object source,ServerValidateEventArgs args)
+        {
+            if (((args.Value.Length < 8) || (args.Value.Length > 16)))
+        {
+            args.IsValid = false;
+        }
+        else
+        {
+            args.IsValid = true;
+        }
+        }
+</script>
+
+
+

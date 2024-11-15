@@ -1,0 +1,17 @@
+<%@ Page Language="C#" %>
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>demo</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    </head>
+    <body>
+        <form name="fm1" runat="server">
+            <asp:Label ID="lb1" runat="server" Text="PIN CODE"></asp:Label>
+            <asp:TextBox ID="tbx1" runat="server"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="rv1" runat="server" ControlToValidate="tbx1" ErrorMessage="*Pincode must be 6 Digit" ValidationExpression="\d{6}" ForeColor="red"></asp:RegularExpressionValidator>
+
+        </form>
+    </body>
+</html>
