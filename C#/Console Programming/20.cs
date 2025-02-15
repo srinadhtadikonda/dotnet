@@ -1,0 +1,10 @@
+﻿using System;
+double p, t, r, si;
+System.Console.Write("Enter the principle amount:");
+p = Convert.ToDouble(System.Console.ReadLine());
+System.Console.Write("Enter the time:");
+t = Convert.ToDouble(System.Console.ReadLine());
+System.Console.Write("Enter the Rate:");
+r = Convert.ToDouble(System.Console.ReadLine());
+si = p * t * r / 100;
+System.Console.WriteLine("Simple Interest:" + si);

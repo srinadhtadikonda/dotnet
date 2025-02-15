@@ -1,0 +1,15 @@
+﻿string bcode = "B101";
+int bno = 1;
+string bname = "UNIX";
+float bprice = 456.75f;
+char bpcode = 'U';
+bool bav = true;
+System.Console.WriteLine("---------------------------------------");
+System.Console.WriteLine("BOOK DETAILS");
+System.Console.WriteLine("---------------------------------------");
+System.Console.WriteLine("Code:" + bcode);
+System.Console.WriteLine("Number:" + bnumber);
+System.Console.WriteLine("Price:" + bprice);
+System.Console.WriteLine("print code:" + bpcode);
+System.Console.WriteLine("Avaliability:" + bav);
+System.Console.WriteLine("---------------------------------------");
