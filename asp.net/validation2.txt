@@ -1,0 +1,15 @@
+<%@ Page Language="C#" %>
+<html lang="en">
+    <head>
+        <title>demo</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    </head>
+    <body>
+        <form name="fm1" runat="server">
+            <asp:Label ID="lb1" runat="server" Text="AGe"></asp:Label>
+            <asp:TextBox  ID="tbx1" runat="server"></asp:TextBox>
+            <asp:RangeValidator ID="rv1" runat="server" ControlToValidate="tbx1" Type="Integer" MinimumValue="18" MaximumValue="23" ErrorMessage="* Age Must be Between 18 and 23" ForeColor ="Red"></asp:RangeValidator>
+            </form>
+    </body>
+</html>
