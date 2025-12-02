@@ -1,7 +1,7 @@
 using System;
 class Test
 {
-    public static void Main()
+ static void Main()
     {
         int[][]a = new int[4][];
 
