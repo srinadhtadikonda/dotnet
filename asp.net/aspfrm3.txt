@@ -1,0 +1,19 @@
+<%@ Page Language="C#" %>
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>demo</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    </head>
+    <body>
+       <form name="fm1" runat="server">
+           <asp:BulletedList ID="b1" runat="server" BulletStyle="Square">
+               <asp:ListItem>PEN</asp:ListItem>
+               <asp:ListItem>BOOK</asp:ListItem>
+                <asp:ListItem>ERASER</asp:ListItem>
+                <asp:ListItem>SCALE</asp:ListItem>
+           </asp:BulletedList>
+       </form>
+    </body>
+</html>
