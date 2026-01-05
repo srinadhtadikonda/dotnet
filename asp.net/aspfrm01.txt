@@ -1,0 +1,117 @@
+<%@ Page Language="C#" %>
+<!DOCTYPE html>
+<script runat="server">
+
+    int a, b, c;
+    protected void btn1_Click(object sender, EventArgs e)
+    {
+        a = Convert.ToInt32(tbx1.Text);
+        b = Convert.ToInt32(tbx2.Text);
+        c = a + b;
+        tbx3.Text = Convert.ToString(c);
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        a = Convert.ToInt32(tbx1.Text);
+        b = Convert.ToInt32(tbx2.Text);
+        c = a - b;
+        tbx3.Text = Convert.ToString(c);
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+
+        a = Convert.ToInt32(tbx1.Text);
+        b = Convert.ToInt32(tbx2.Text);
+        c = a * b;
+        tbx3.Text = Convert.ToString(c);
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+
+        a = Convert.ToInt32(tbx1.Text);
+        b = Convert.ToInt32(tbx2.Text);
+        c = a / b;
+        tbx3.Text = Convert.ToString(c);
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+
+        a = Convert.ToInt32(tbx1.Text);
+        b = Convert.ToInt32(tbx2.Text);
+        c = a % b;
+        tbx3.Text = Convert.ToString(c);
+    }
+
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        tbx1.Text = "";
+        tbx2.Text = "";
+        tbx3.Text = "";
+    }
+</script>
+
+<html lang="en">
+    <head>
+        <title>demo</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-widh,initial-scale=1.0" />
+        <style type="text/css">
+            body
+            {
+                background-color:goldenrod;
+            }
+            .btn
+            {
+                color:blue;
+                background-color:brown;
+            }
+            .btn:hover
+            {
+                color:cyan;
+            }
+            .dv {
+                margin-left: 400px;
+                margin-top:150px;
+                width:220px;
+                background-color:hotpink;
+                box-shadow:10px 10px 10px 10px;
+                padding:10px;
+            }
+            
+        </style>
+    </head>
+    <body>
+
+
+        <h1>CALCULATOR</h1>
+        <form name="fm1" runat="server">
+       
+          
+            <div class="dv">
+            <asp:Label id="lb1" runat="server" Text="A"></asp:Label>
+            <asp:TextBox ID="tbx1" runat="server" Text=""></asp:TextBox>
+            
+            <br /><br />
+            <asp:Label id="lb2" runat="server" Text="B"></asp:Label>
+<asp:TextBox ID="tbx2" runat="server" Text=""></asp:TextBox>
+            <br /><br />
+
+<asp:Label id="lb3" runat="server" Text="Result"></asp:Label>
+<asp:TextBox ID="tbx3" runat="server" Text=""></asp:TextBox>
+            <br /><br />
+
+<asp:Button ID="btn1" CssClass="btn" runat="server" Text="+" OnClick="btn1_Click" />
+<asp:Button ID="btn2" CssClass="btn" runat="server" Text="-" OnClick="Button1_Click" />
+<asp:Button ID="btn3" CssClass="btn" runat="server" Text="*" OnClick="Button2_Click" />
+<asp:Button ID="btn4" CssClass="btn" runat="server" Text="/" OnClick="Button3_Click" />
+<asp:Button ID="btn5" CssClass="btn" runat="server" Text="%" OnClick="Button4_Click" />
+<asp:Button ID="btn6" CssClass="btn" runat="server" Text="<-" OnClick="Button5_Click" />
+        </div>
+        </form>
+    </body>
+</html>
