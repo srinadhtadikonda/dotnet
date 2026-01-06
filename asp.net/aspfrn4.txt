@@ -1,0 +1,48 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CoffeeOrder.aspx.cs" Inherits="CoffeeApp.CoffeeOrder" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Coffee Order</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <p>How would you like your coffee?</p>
+
+        <asp:CheckBox ID="chkCream" runat="server" Text=" With cream" AutoPostBack="true" OnCheckedChanged="UpdateOrder" />
+        <br />
+
+        <asp:CheckBox ID="chkSugar" runat="server" Text=" With sugar" AutoPostBack="true" OnCheckedChanged="UpdateOrder" />
+        <br /><br />
+
+        <asp:TextBox ID="txtOrder" runat="server" Width="400px" ReadOnly="true"></asp:TextBox>
+    </form>
+</body>
+</html>
+📄 CoffeeOrder.aspx.cs (Code-Behind)
+csharp
+Copy code
+using System;
+using System.Collections.Generic;
+
+namespace CoffeeApp
+{
+    public partial class CoffeeOrder : System.Web.UI.Page
+    {
+        protected void UpdateOrder(object sender, EventArgs e)
+        {
+            List<string> selections = new List<string>();
+
+            if (chkCream.Checked)
+                selections.Add("cream");
+
+            if (chkSugar.Checked)
+                selections.Add("sugar");
+
+            if (selections.Count > 0)
+                txtOrder.Text = "You ordered coffee with " + string.Join(", ", selections);
+            else
+                txtOrder.Text = "";
+        }
+    }
+}
