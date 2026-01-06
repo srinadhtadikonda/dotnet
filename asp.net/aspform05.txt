@@ -1,0 +1,57 @@
+📄 CoffeeOrder.aspx
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CoffeeOrder.aspx.cs" Inherits="CoffeeApp.CoffeeOrder" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Demo</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <p>How would you like your coffee?</p>
+
+        <asp:RadioButton ID="rbCream" runat="server"
+            GroupName="coffee"
+            Text=" With cream"
+            AutoPostBack="true"
+            OnCheckedChanged="UpdateOrder" />
+        <br />
+
+        <asp:RadioButton ID="rbSugar" runat="server"
+            GroupName="coffee"
+            Text=" With sugar"
+            AutoPostBack="true"
+            OnCheckedChanged="UpdateOrder" />
+        <br /><br />
+
+        <asp:TextBox ID="txtOrder" runat="server"
+            Width="400px"
+            ReadOnly="true" />
+    </form>
+</body>
+</html>
+
+📄 CoffeeOrder.aspx.cs
+using System;
+
+namespace CoffeeApp
+{
+    public partial class CoffeeOrder : System.Web.UI.Page
+    {
+        protected void UpdateOrder(object sender, EventArgs e)
+        {
+            if (rbCream.Checked)
+            {
+                txtOrder.Text = "You ordered coffee with cream";
+            }
+            else if (rbSugar.Checked)
+            {
+                txtOrder.Text = "You ordered coffee with sugar";
+            }
+            else
+            {
+                txtOrder.Text = "";
+            }
+        }
+    }
+}
