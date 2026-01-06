@@ -1,0 +1,64 @@
+📄 MultiSelect.aspx
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MultiSelect.aspx.cs" Inherits="WebApp.MultiSelect" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Select Multiple Values Display</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <label>Choose values:</label><br />
+
+        <asp:ListBox ID="lstItems"
+            runat="server"
+            SelectionMode="Multiple"
+            AutoPostBack="true"
+            OnSelectedIndexChanged="lstItems_SelectedIndexChanged">
+
+            <asp:ListItem Value="PEN">PEN</asp:ListItem>
+            <asp:ListItem Value="PENCIL">PENCIL</asp:ListItem>
+            <asp:ListItem Value="BOOK">BOOK</asp:ListItem>
+            <asp:ListItem Value="ERASER">ERASER</asp:ListItem>
+
+        </asp:ListBox>
+
+        <br /><br />
+
+        <asp:Label ID="lblResult" runat="server"
+            Text="Selected values will be displayed here.">
+        </asp:Label>
+
+    </form>
+</body>
+</html>
+
+📄 MultiSelect.aspx.cs (Code-Behind)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace WebApp
+{
+    public partial class MultiSelect : System.Web.UI.Page
+    {
+        protected void lstItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedValues = lstItems.Items
+                                         .Cast<System.Web.UI.WebControls.ListItem>()
+                                         .Where(item => item.Selected)
+                                         .Select(item => item.Value)
+                                         .ToList();
+
+            if (selectedValues.Count > 0)
+            {
+                lblResult.Text = "Selected values: " + string.Join(", ", selectedValues);
+            }
+            else
+            {
+                lblResult.Text = "No values selected.";
+            }
+        }
+    }
+}
