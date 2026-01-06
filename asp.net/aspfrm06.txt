@@ -1,0 +1,53 @@
+📄 Items.aspx
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Items.aspx.cs" Inherits="WebApp.Items" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Demo</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <label>Items:</label>
+        <asp:DropDownList ID="ddlItems" runat="server"
+            AutoPostBack="true"
+            OnSelectedIndexChanged="ddlItems_SelectedIndexChanged">
+
+            <asp:ListItem Value="pen">PEN</asp:ListItem>
+            <asp:ListItem Value="pencil">PENCIL</asp:ListItem>
+            <asp:ListItem Value="book">BOOK</asp:ListItem>
+            <asp:ListItem Value="eraser">ERASER</asp:ListItem>
+            <asp:ListItem Value="scale">SCALE</asp:ListItem>
+            <asp:ListItem Value="bag">BAG</asp:ListItem>
+
+        </asp:DropDownList>
+
+        <br /><br />
+
+        <table>
+            <tr>
+                <td>Your Selection = </td>
+                <td>
+                    <asp:Label ID="lblSelection" runat="server"></asp:Label>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>
+
+📄 Items.aspx.cs (Code-Behind)
+using System;
+
+namespace WebApp
+{
+    public partial class Items : System.Web.UI.Page
+    {
+        protected void ddlItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblSelection.Text = ddlItems.SelectedValue.ToUpper();
+        }
+    }
+}
